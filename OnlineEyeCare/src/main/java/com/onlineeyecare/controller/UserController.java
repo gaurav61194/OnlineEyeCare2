@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onlineeyecare.dto.User;
 import com.onlineeyecare.exceptions.PasswordNotMatchException;
+import com.onlineeyecare.exceptions.ResourceNotFoundException;
 import com.onlineeyecare.exceptions.UserNotFoundException;
 import com.onlineeyecare.service.IUserService;
 
@@ -22,17 +23,17 @@ public class UserController {
 	private IUserService Iuserservice;
 	
 	@PostMapping("login")
-	public ResponseEntity<Boolean> loginUser(@RequestBody User userdto) throws UserNotFoundException{
+	public ResponseEntity<Boolean> loginUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
 		return new ResponseEntity<Boolean>(Iuserservice.signIn(userdto),HttpStatus.OK);
 	}
 	
 	@PostMapping("/logout")
-	public ResponseEntity<Boolean> logoutUser(@RequestBody User userdto) throws UserNotFoundException{
+	public ResponseEntity<Boolean> logoutUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
 		return new ResponseEntity<Boolean>(Iuserservice.signOut(userdto),HttpStatus.OK);	
 	}
 	
 	@PutMapping("/updatepassword/{newPassword}")
-	public ResponseEntity<User> updatePassword(@PathVariable String newPassword,@RequestBody User userdto) throws UserNotFoundException, PasswordNotMatchException{
+	public ResponseEntity<User> updatePassword(@PathVariable String newPassword,@RequestBody User userdto) throws UserNotFoundException, PasswordNotMatchException, ResourceNotFoundException{
 		return new ResponseEntity<User>(Iuserservice.changePassword(newPassword, userdto),HttpStatus.OK);
 	}
 	
