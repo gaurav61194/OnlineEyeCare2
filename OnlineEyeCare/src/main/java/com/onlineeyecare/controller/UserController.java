@@ -23,13 +23,13 @@ public class UserController {
 	private IUserService Iuserservice;
 	
 	@PostMapping("login")
-	public ResponseEntity<Boolean> loginUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
-		return new ResponseEntity<Boolean>(Iuserservice.signIn(userdto),HttpStatus.OK);
+	public ResponseEntity<String> loginUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
+		return new ResponseEntity<String>(Iuserservice.signIn(userdto),HttpStatus.OK);
 	}
 	
 	@PostMapping("/logout")
-	public ResponseEntity<Boolean> logoutUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
-		return new ResponseEntity<Boolean>(Iuserservice.signOut(userdto),HttpStatus.OK);	
+	public ResponseEntity<String> logoutUser(@RequestBody User userdto) throws UserNotFoundException, ResourceNotFoundException{
+		return new ResponseEntity<String>(Iuserservice.signOut(userdto),HttpStatus.OK);	
 	}
 	
 	@PutMapping("/updatepassword/{newPassword}")

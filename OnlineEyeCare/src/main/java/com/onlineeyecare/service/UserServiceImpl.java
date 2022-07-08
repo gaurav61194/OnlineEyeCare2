@@ -16,7 +16,8 @@ public class UserServiceImpl implements IUserService{
 	private IUserRepository userRepository;
 	
 	@Override
-	public Boolean signIn(User user) throws UserNotFoundException{
+	public String signIn(User user) throws UserNotFoundException{
+		String massage = "User Not Found";
 		Boolean status = false;
 		Optional<User> resultUser =userRepository.findByuserName(user.getUserName());
 		if(resultUser.isPresent()) {
@@ -28,11 +29,12 @@ public class UserServiceImpl implements IUserService{
 			
 			throw new UserNotFoundException("User Not Found");
 	}
-	return status;
+	return massage;
 }
 	
 	@Override
-	public Boolean  signOut(User user) throws UserNotFoundException {
+	public String signOut(User user) throws UserNotFoundException {
+		String massage = "User Not Found";
 		Boolean status=false;
 		Optional<User> resultUser=userRepository.findByuserName(user.getUserName());
 
@@ -42,7 +44,7 @@ public class UserServiceImpl implements IUserService{
 		else if(resultUser.get().getPassword().equals(user.getPassword())) {
 			 status = true;
 		}
-		return status;
+		return massage;
 	}
 	
 	@Override
