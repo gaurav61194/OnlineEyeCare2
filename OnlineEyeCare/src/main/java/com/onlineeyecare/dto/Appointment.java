@@ -30,6 +30,7 @@ public class Appointment {
 	Doctor doctorId;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="patient_Id")
+	@JsonIgnore
 	Patient patientId;
 	
 	public Appointment() {
@@ -80,6 +81,12 @@ public class Appointment {
 	}
 	public void setPatientId(Patient patientId) {
 		this.patientId = patientId;
+	}
+	@Override
+	public String toString() {
+		return "Appointment [appointmentId=" + appointmentId + ", dateOfAppointment=" + dateOfAppointment
+				+ ", timeOfAppointment=" + timeOfAppointment + ", consultationFee=" + consultationFee + ", doctorId="
+				+ doctorId + ", patientId=" + patientId + "]";
 	}
 	
 	

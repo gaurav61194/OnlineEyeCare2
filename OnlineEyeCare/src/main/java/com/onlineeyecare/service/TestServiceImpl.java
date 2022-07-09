@@ -16,59 +16,54 @@ import com.onlineeyecare.exceptions.TestIdNotFoundException;
 public class TestServiceImpl implements ITestService{
 	
 	@Autowired
-	private ITestRepository testRepo;
+	private ITestRepository repository;
 
 	@Override
 	public TestModule addTest(TestModule test) {
-		return testRepo.saveAndFlush(test);
+		return repository.saveAndFlush(test);
 	}
 
 	@Override
 	public TestModule updateTest(TestModule test) {
-		return testRepo.saveAndFlush(test);
+		return repository.saveAndFlush(test);
 	}
 
 	@Override
 	public TestModule removeTest(int testId) throws TestIdNotFoundException {
 		Supplier<TestIdNotFoundException> supplier=()->new TestIdNotFoundException("test with given id is not available");
-		Optional<TestModule> t=Optional.ofNullable(testRepo.findById(testId).orElseThrow(supplier));
-		testRepo.deleteById(testId);
+		Optional<TestModule> t=Optional.ofNullable(repository.findById(testId).orElseThrow(supplier));
+		repository.deleteById(testId);
 		return t.get();
 	}
 
 	@Override
 	public TestModule viewTest(int testId) throws TestIdNotFoundException{
 		Supplier<TestIdNotFoundException> supplier=()->new TestIdNotFoundException("test with given id is not available");
-		Optional<TestModule> t=Optional.ofNullable(testRepo.findById(testId).orElseThrow(supplier));
+		Optional<TestModule> t=Optional.ofNullable(repository.findById(testId).orElseThrow(supplier));
 		return t.get();
 	}
 
 	@Override
 	public List<TestModule> viewAllTests() {
-		return testRepo.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public List<TestModule> viewTestsByDoctor(int doctorId) throws DoctorIdNotFoundException {
-		return testRepo.getTestsByDoctor(doctorId);
+		return repository.getTestsByDoctor(doctorId);
 	}
 
-	@Override
-	public TestModule removeTest(Integer testId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<TestModule> viewTestsByDoctor(Integer doctorId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public TestModule viewTest(Integer testId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	  @Override public TestModule removeTest(Integer testId) { 
+		  return null; 
+		  }
+	  
+	  @Override public List<TestModule> viewTestsByDoctor(Integer doctorId) { 
+	  return null; 
+	  }
+	  
+	  @Override public TestModule viewTest(Integer testId) {
+	  return null; }
+	 
 	
 }

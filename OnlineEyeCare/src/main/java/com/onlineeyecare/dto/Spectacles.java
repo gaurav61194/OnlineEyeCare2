@@ -14,8 +14,6 @@ public class Spectacles implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="spectacles_seq")
-	@SequenceGenerator(name="spectacles_seq",sequenceName="spectacles_seq",allocationSize=1)
 	@Column(name="spectacles_Id")
 	private int spectaclesId;
 	@Column(name="spectacles_Number")

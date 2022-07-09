@@ -10,30 +10,38 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlineeyecare.dto.Report;
+import com.onlineeyecare.dto.Spectacles;
+import com.onlineeyecare.exceptions.PatientIdNotFoundException;
 import com.onlineeyecare.exceptions.ReportIdNotFoundException;
 import com.onlineeyecare.service.IReportService;
 
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@Api
 @RestController
 @RequestMapping("/v1")
 public class ReportController {
 	@Autowired
 	IReportService Ireportservice;
-	@GetMapping("/Welcome")
+
+	@GetMapping("/")
 	public  String welcome()
 	{
 		return "Welcome to Report module";
 	}
+	
 	@PostMapping("/addreport")
 	public Report addReport(@RequestBody Report report)
 	{
 		return Ireportservice.addReport(report);
 	}
+	
 	@PutMapping("/updatereport")
 	public Report updateReport(@RequestBody Report report)throws ReportIdNotFoundException
 	{
@@ -45,8 +53,23 @@ public class ReportController {
 		return Ireportservice.removeReport(id);
 	}
 	
+	@GetMapping("/report/{Id1}/patient/{Id2}")
+	public Report findPatientReport(@PathVariable int Id1,@PathVariable int Id2) throws ReportIdNotFoundException, PatientIdNotFoundException
+	{
+		return Ireportservice.viewReport(Id1, Id2);
+	}
+
+	
+	@GetMapping("/allspectacles")
+	public List<Spectacles> listallspec()
+	{
+		return Ireportservice.viewSpetacles();
+	}
+	
+
+
 	@GetMapping("/allreportsbydate")
-	public List<com.onlineeyecare.dto.Report> listallreportbydate(@RequestParam(value = "date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date)
+	public List<Report> listallreportbydate(@RequestParam(value = "date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date)
 	{
 		return Ireportservice.viewAllReport(date);
 	}

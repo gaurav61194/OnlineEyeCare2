@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 public class Doctor {
 	@Id
 	@GeneratedValue
-	@Column(name="doctor_Id")
+	@Column(name="doctorId")
 	public int doctorId;
 	@NotNull(message="Name is mandatory")
 	private String doctorName;

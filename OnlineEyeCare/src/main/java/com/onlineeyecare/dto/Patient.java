@@ -138,6 +138,8 @@ public class Patient {
 				+ patientaddress + ", appointment=" + appointment + "]";
 	}
 	
-	
+	public Patient get(int i) {
+		return null;
+	}
 
 }

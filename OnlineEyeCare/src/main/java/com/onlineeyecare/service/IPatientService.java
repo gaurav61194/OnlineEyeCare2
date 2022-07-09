@@ -13,14 +13,23 @@ import com.onlineeyecare.exceptions.UserNameAlreadyExistException;
 @Service
 public interface IPatientService {
 	
-	Patient addPatient(Patient patient) throws UserNameAlreadyExistException ;
+	public Patient addPatient(Patient patient) throws UserNameAlreadyExistException ;
+	
 	public List<Patient> addPatients(List<Patient> patient);
+	
 	public List<Patient> viewPatientList();
+	
 	public List<Patient> viewAllPatients();
+	
 	public Patient viewPatient(int patientId) throws PatientIdNotFoundException;
+	
 	public Patient updatePatient(Patient patient);
+	
 	public Patient deletePatient(int patientId) throws PatientIdNotFoundException;
+	
 	public List<Appointment> viewAppointmentsByPatient(int patientId) throws PatientIdNotFoundException;
+	
 	public List<Report> viewReportsByPatient(int patientId) throws PatientIdNotFoundException;
+	
 	public Patient bookAppointmnet(Patient patients);
 }

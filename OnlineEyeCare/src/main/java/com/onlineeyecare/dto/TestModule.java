@@ -4,26 +4,32 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class TestModule implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
+	@NotNull(message="Id is Mandatory")
 	@Column(name="test_Id")
 	private int testId;
-	@Column(name="test_Name")
+	
+	@NotNull(message="Name is Mandatory")
+	@Size(min=4, message="Name should be atlist 4 Char")
 	private String testName;
+	
+	
 	private String testType;
-	private String testDescription;;
+	@NotEmpty(message="Test description is required")
+	private String testDescription;
+	
+	//@Size(min=100,message="Cost should be more than 100")
 	private double testCost;
 	
 	@ManyToOne

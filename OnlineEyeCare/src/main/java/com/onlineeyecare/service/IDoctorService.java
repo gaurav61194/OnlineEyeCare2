@@ -14,10 +14,9 @@ public interface IDoctorService {
 	public Doctor addDoctor(Doctor doctor);
 	public Doctor viewDoctor(int doctorId)throws DoctorIdNotFoundException;
 	public List<Doctor> viewDoctorsList();
+	public TestModule createTest(TestModule test);
 	public Doctor updateDoctor(Doctor doctor)throws DoctorIdNotFoundException;
 	public Doctor deleteDoctor(int doctorId) throws DoctorIdNotFoundException;
 	public List<Appointment> viewAllAppointments();
 	public List<Doctor> viewAllDoctors();
-
-
 }

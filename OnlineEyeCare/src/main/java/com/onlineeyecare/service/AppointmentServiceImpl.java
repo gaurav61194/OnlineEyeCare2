@@ -78,9 +78,13 @@ public class AppointmentServiceImpl implements IAppointmentService{
 	@Override
 	public Appointment bookAppointment(Appointment appointment) {
 		
-		return appointmentRepo.saveAndFlush(appointment);
+		return appointmentRepo.save(appointment);
 	}
 
-	
+	@Override
+	public Appointment bookAppointment(IAppointmentService tempAppointment) {
+		
+		return null;
+	}
 	
 }

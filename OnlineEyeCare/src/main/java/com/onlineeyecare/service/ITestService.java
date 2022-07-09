@@ -9,18 +9,18 @@ import com.onlineeyecare.exceptions.DoctorIdNotFoundException;
 import com.onlineeyecare.exceptions.TestIdNotFoundException;
 
 public interface ITestService {
+	
+	TestModule addTest(TestModule a1);
+	
+	TestModule updateTest(TestModule testModule);
 
 	public TestModule removeTest(Integer testId);
 
 	public List<TestModule> viewTestsByDoctor(Integer doctorId);
 
-	public TestModule updateTest(TestModule test);
-
 	public TestModule viewTest(Integer testId);
 
 	public List<TestModule> viewAllTests();
-
-	public TestModule addTest(TestModule tests);
 
 	public TestModule removeTest(int testId) throws TestIdNotFoundException;
 

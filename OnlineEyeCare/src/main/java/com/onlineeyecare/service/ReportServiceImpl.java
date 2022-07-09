@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.onlineeyecare.dao.IReportRepository;
 import com.onlineeyecare.dto.Patient;
 import com.onlineeyecare.dto.Report;
+import com.onlineeyecare.dto.Spectacles;
 import com.onlineeyecare.exceptions.PatientIdNotFoundException;
 import com.onlineeyecare.exceptions.ReportIdNotFoundException;
 
@@ -52,8 +53,10 @@ public class ReportServiceImpl implements IReportService {
 		}
 	}
 
-	
-	
+	@Override
+	public List<Spectacles> viewSpetacles() {
+		return Ireportrepository.findAllSpectacles();
+	}
 	
 	@Override
 	public List<Report> viewAllReport(LocalDate date) {
@@ -63,7 +66,7 @@ public class ReportServiceImpl implements IReportService {
 	  @Override 
 	  public Report viewReport(int reportId, int patientId) throws ReportIdNotFoundException, PatientIdNotFoundException { 
 	  Optional<Report> result1=Ireportrepository.findById(reportId); 
-	  Patient result2=Ireportrepository.findById(reportId).get().getPatient();
+	  Patient result2=Ireportrepository.findById(reportId).get().getPatientId();
 	  	if(result1.isPresent()) { 
 	  		if(result2.getPatientId()==patientId) { 
 	  			return result1.get(); 

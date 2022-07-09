@@ -6,10 +6,16 @@ import com.onlineeyecare.exceptions.ResourceNotFoundException;
 import com.onlineeyecare.exceptions.UserNotFoundException;
 
 public interface IUserService {
+	
 	public String signIn(User user) throws ResourceNotFoundException, UserNotFoundException;
+	
 	public String signOut(User user) throws ResourceNotFoundException, UserNotFoundException;
+	
 	public User changePassword(String userName, User user) throws ResourceNotFoundException, UserNotFoundException, PasswordNotMatchException;
+	
 	public String adminLogin(String adminUsername, String adminPassword);
-	String patientLogin(String username, String password);
-	String doctorLogin(String username, String password);
+	
+	public String patientLogin(String username, String password);
+	
+	public String doctorLogin(String username, String password);
 }

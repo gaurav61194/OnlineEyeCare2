@@ -21,7 +21,7 @@ import com.onlineeyecare.exceptions.UserNotFoundException;
 import com.onlineeyecare.service.IUserService;
 
 @RestController
-@RequestMapping("login/api/")
+@RequestMapping("/")
 public class UserController {
 	@Autowired
 	private IUserService iuserservice;

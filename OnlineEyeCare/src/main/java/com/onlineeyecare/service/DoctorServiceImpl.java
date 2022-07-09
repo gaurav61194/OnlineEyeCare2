@@ -26,15 +26,14 @@ public class DoctorServiceImpl implements IDoctorService {
 	@Autowired
 	private IAppointmentRepository appointmentrepo;
 	
-
+	@Autowired
+	private ITestRepository testRepository;
 	
 	@Override
 	public Doctor addDoctor(Doctor doctor) {
 
 		return doctorRepository.saveAndFlush(doctor);
 	}
-	
-
 	
 	
 	@Override
@@ -53,9 +52,6 @@ public class DoctorServiceImpl implements IDoctorService {
 		//return null;
 		
 	}
-	
-
-	
 	
 	@Override
 	public List<Doctor> viewDoctorsList() {
@@ -101,12 +97,13 @@ public class DoctorServiceImpl implements IDoctorService {
 		return appointmentrepo.findAll();
 	}
 
-
-
+	@Override
+	public TestModule createTest(TestModule test) {
+		return testRepository.saveAndFlush(test);
+	}
 
 	@Override
 	public List<Doctor> viewAllDoctors() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
