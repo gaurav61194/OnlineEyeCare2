@@ -1,5 +1,8 @@
 package com.onlineeyecare.service;
 
-public interface IAppointmentService {
 
+
+public interface IAppointmentService {
+	
 }
+

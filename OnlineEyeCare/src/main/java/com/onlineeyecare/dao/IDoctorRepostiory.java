@@ -1,5 +1,6 @@
 package com.onlineeyecare.dao;
 
-public interface IDoctorRepostiory {
 
+public interface IDoctorRepostiory  {
+	
 }

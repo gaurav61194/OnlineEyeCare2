@@ -2,6 +2,7 @@ package com.onlineeyecare.exceptions;
 
 public class UserNotFoundException extends Exception {
 
+
 	private static final long serialVersionUID = 1L;
 
 	public UserNotFoundException(String msg) {
@@ -9,4 +10,7 @@ public class UserNotFoundException extends Exception {
 	}
 
 }
+	
+
+
 

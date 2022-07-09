@@ -1,5 +1,9 @@
 package com.onlineeyecare.service;
 
-public class AppointmentServiceImpl {
 
+
+public class AppointmentServiceImpl implements IAppointmentService{
+	
+	
 }
+

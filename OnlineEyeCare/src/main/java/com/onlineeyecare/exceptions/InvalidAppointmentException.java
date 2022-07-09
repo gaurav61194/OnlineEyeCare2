@@ -1,5 +1,6 @@
 package com.onlineeyecare.exceptions;
 
-public class InvalidAppointmentException {
+public class InvalidAppointmentException extends Exception {
 
+	
 }

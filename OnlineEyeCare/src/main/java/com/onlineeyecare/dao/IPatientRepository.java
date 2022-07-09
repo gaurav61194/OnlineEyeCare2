@@ -1,5 +1,7 @@
 package com.onlineeyecare.dao;
 
-public interface IPatientRepository {
 
+public interface IPatientRepository  {
+	
 }
+

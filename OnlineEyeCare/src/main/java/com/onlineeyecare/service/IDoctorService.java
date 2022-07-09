@@ -1,5 +1,11 @@
 package com.onlineeyecare.service;
 
-public class IDoctorService {
 
+public interface IDoctorService {
 }
+
+
+
+	
+	
+

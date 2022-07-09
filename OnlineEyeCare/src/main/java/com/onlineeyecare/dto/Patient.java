@@ -1,5 +1,13 @@
 package com.onlineeyecare.dto;
 
-public class Patient {
 
+public class Patient {
+	
+
+	
+	
+	
+	
+	
+	
 }

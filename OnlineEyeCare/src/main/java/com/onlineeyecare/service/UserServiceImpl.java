@@ -45,8 +45,8 @@ public class UserServiceImpl implements IUserService{
 		return status;
 	}
 	
-	@Override
-	public User changePassword(String newPassword, User user) throws UserNotFoundException, PasswordNotMatchException {
+	 @Override
+	 public User changePassword(String newPassword, User user) throws UserNotFoundException, PasswordNotMatchException {
 		Optional<User> resultUser=userRepository.findByuserName(user.getUserName());
 		if(resultUser.isPresent()) {
 			if((resultUser.get().getPassword().equals(user.getPassword())))

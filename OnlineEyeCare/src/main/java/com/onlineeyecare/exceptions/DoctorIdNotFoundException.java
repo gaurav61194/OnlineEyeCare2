@@ -1,5 +1,7 @@
 package com.onlineeyecare.exceptions;
 
-public class DoctorIdNotFoundException {
+public class DoctorIdNotFoundException extends Exception {
+
 
 }
+
