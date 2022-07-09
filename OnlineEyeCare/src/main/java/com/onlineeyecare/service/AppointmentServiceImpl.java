@@ -19,13 +19,6 @@ public class AppointmentServiceImpl implements IAppointmentService{
 	IAppointmentRepository appointmentRepo;
 
 	@Override
-	public Appointment bookAppointment(Appointment appointment) {
-		
-		
-		return appointmentRepo.save(appointment);
-	}
-
-	@Override
 	public Appointment updateAppointment(Appointment appointment) throws ResourceNotFoundException {
 		
 		Optional<Appointment> result=appointmentRepo.findById(appointment.getAppointmentId());
@@ -83,9 +76,9 @@ public class AppointmentServiceImpl implements IAppointmentService{
 	}
 
 	@Override
-	public Appointment bookAppointment(IAppointmentService tempAppointment) {
+	public Appointment bookAppointment(Appointment appointment) {
 		
-		return null;
+		return appointmentRepo.saveAndFlush(appointment);
 	}
 
 	

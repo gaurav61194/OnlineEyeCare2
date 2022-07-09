@@ -39,7 +39,7 @@ public class UserController {
 	@GetMapping("doctor")
 	public ResponseEntity<String> doctorLogin(@RequestBody  Doctor doctor)
 	{
-		return new ResponseEntity<String>(iuserservice.doctorLogin(doctor.getDoctorUserName(),doctor.getDoctorPassword()),HttpStatus.OK);
+		return new ResponseEntity<String>(iuserservice.doctorLogin(doctor.getDoctorUsername(),doctor.getDoctorPassword()),HttpStatus.OK);
 	}
 	@GetMapping("patient")
 	public ResponseEntity<String> patientLogin(@RequestBody Patient patient)

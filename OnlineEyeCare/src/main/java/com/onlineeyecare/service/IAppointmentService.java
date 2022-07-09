@@ -8,8 +8,6 @@ import com.onlineeyecare.exceptions.ResourceNotFoundException;
 
 public interface IAppointmentService {
 	
-	Appointment bookAppointment(IAppointmentService tempAppointment);
-	
 	Appointment updateAppointment(Appointment appointment) throws ResourceNotFoundException;
 	
 	Appointment cancelAppointment(int appointmentId) throws  ResourceNotFoundException, Throwable;

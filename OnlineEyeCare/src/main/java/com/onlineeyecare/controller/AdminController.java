@@ -17,26 +17,12 @@ import com.onlineeyecare.exceptions.AdminIdNotFoundException;
 import com.onlineeyecare.exceptions.UserNameAlreadyExistException;
 import com.onlineeyecare.service.IAdminService;
 
-import antlr.collections.List;
-
 @RestController
 @RequestMapping("admin/api/v1")
 public class AdminController {
 
 	@Autowired private IAdminService as;
 	
-	 
-	/*
-	 * @SuppressWarnings({ "rawtypes", "unchecked" })
-	 * 
-	 * @GetMapping("/get")
-	 * 
-	 * public ResponseEntity <List<Admin>> getAllAdmins(){ List<Admin> admins=
-	 * as.viewAllAdmins(); if(admins.isEmpty()) { return new
-	 * ResponseEntity("Sorry! admins not found!", HttpStatus.NOT_FOUND); }
-	 * 
-	 * return new ResponseEntity<List<Admin>>(admins, HttpStatus.OK); }
-	 */
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	@PostMapping("/insert")
 	public ResponseEntity<Admin> InsertAdmin(@RequestBody Admin admin) throws UserNameAlreadyExistException{
@@ -86,15 +72,45 @@ public class AdminController {
 		
 		return new ResponseEntity<Admin>(admins, HttpStatus.OK);
 	}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+	/*
+	 * @SuppressWarnings({ "rawtypes", "unchecked" })
+	 * 
+	 * @GetMapping("/getAdminUserNames") public ResponseEntity <List<String>>
+	 * HttpEntity getAllUsernames() {List<String> admins= as.getAdmins();
+	 * if(admins.isEmpty()) { return new
+	 * ResponseEntity("Sorry! tests not found!",HttpStatus.NOT_FOUND); } return new
+	 * ResponseEntity List<String> (admins,HttpStatus.OK); }
+	 */
+
+    
+    /*
+	 * @SuppressWarnings({ "rawtypes", "unchecked" })
+	 * 
+	 * @GetMapping("/get")
+	 * 
+	 * public ResponseEntity <List<Admin>> getAllAdmins(){ List<Admin> admins=
+	 * as.viewAllAdmins(); if(admins.isEmpty()) { return new
+	 * ResponseEntity("Sorry! admins not found!", HttpStatus.NOT_FOUND); }
+	 * 
+	 * return new ResponseEntity<List<Admin>>(admins, HttpStatus.OK); }
+	 */
 }
-   /* @SuppressWarnings({ "rawtypes", "unchecked" })
-    @GetMapping("/getAdminUserNames")
-	public ResponseEntity<List<String>> getAllUsernames()
-	{
-    	List<String> admins= as.getAdmins();
-		if(admins.isEmpty()) {
-			return new ResponseEntity("Sorry! tests not found!", 
-					HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<List<String>>(admins,HttpStatus.OK);
-	}*/

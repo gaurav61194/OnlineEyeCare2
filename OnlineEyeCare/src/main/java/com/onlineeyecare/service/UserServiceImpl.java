@@ -81,22 +81,21 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public String doctorLogin(String username, String password) {
-		// TODO Auto-generated method stub
 		String detail=null;
 		List<Doctor> doctors=doctorService.viewAllDoctors();
 		for(Doctor doctor:doctors)
 		{
-			if(doctor.getDoctorUserName().equals(username) && doctor.getDoctorPassword().equals(password))
+			if(doctor.getDoctorUsername().equals(username) && doctor.getDoctorPassword().equals(password))
 			{
 				detail="you are logged in as : "+username;
 				break;
 			}
-			else if(doctor.getDoctorUserName().equals(username) && doctor.getDoctorPassword()!=password)
+			else if(doctor.getDoctorUsername().equals(username) && doctor.getDoctorPassword()!=password)
 			{
 				detail="username exist but password doesn't matches";
 				break;
 			}
-			else if(doctor.getDoctorUserName()!=username)
+			else if(doctor.getDoctorUsername()!=username)
 			{
 				detail="username not exist. Please register !!!!";
 			}
