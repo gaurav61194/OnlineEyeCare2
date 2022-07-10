@@ -1,5 +1,7 @@
 package com.onlineeyecare.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,6 +75,16 @@ public class AdminController {
 		return new ResponseEntity<Admin>(admins, HttpStatus.OK);
 	}
     
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	  
+	  @GetMapping("/get")
+	  
+	  public ResponseEntity <List<Admin>> getAllAdmins(){ 
+		  List<Admin> admins= as.viewAllAdmins(); if(admins.isEmpty()) { 
+			  return new ResponseEntity("Sorry! admins not found!", HttpStatus.NOT_FOUND); 
+			  } 
+	  return new ResponseEntity<List<Admin>>(admins, HttpStatus.OK); }
+	 
     
     
     
@@ -91,6 +103,7 @@ public class AdminController {
     
 
 
+	
 	/*
 	 * @SuppressWarnings({ "rawtypes", "unchecked" })
 	 * 
@@ -99,18 +112,5 @@ public class AdminController {
 	 * if(admins.isEmpty()) { return new
 	 * ResponseEntity("Sorry! tests not found!",HttpStatus.NOT_FOUND); } return new
 	 * ResponseEntity List<String> (admins,HttpStatus.OK); }
-	 */
-
-    
-    /*
-	 * @SuppressWarnings({ "rawtypes", "unchecked" })
-	 * 
-	 * @GetMapping("/get")
-	 * 
-	 * public ResponseEntity <List<Admin>> getAllAdmins(){ List<Admin> admins=
-	 * as.viewAllAdmins(); if(admins.isEmpty()) { return new
-	 * ResponseEntity("Sorry! admins not found!", HttpStatus.NOT_FOUND); }
-	 * 
-	 * return new ResponseEntity<List<Admin>>(admins, HttpStatus.OK); }
 	 */
 }

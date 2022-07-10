@@ -12,7 +12,7 @@ import com.onlineeyecare.dto.Appointment;
 import com.onlineeyecare.exceptions.ResourceNotFoundException;
 
 
-@Service
+@Service(value="appointmentServiceImpl")
 public class AppointmentServiceImpl implements IAppointmentService{
 	
 	@Autowired

@@ -13,7 +13,7 @@ import com.onlineeyecare.dto.Admin;
 import com.onlineeyecare.exceptions.AdminIdNotFoundException;
 import com.onlineeyecare.exceptions.UserNameAlreadyExistException;
 
-@Service
+@Service(value="adminServiceImpl")
 public class AdminServiceImpl implements IAdminService {
 
 	@Autowired

@@ -16,11 +16,14 @@ public class Spectacles implements Serializable {
 	@Id
 	@Column(name="spectacles_Id")
 	private int spectaclesId;
+	
 	@Column(name="spectacles_Number")
 	private String spectaclesNumber;
+	
 	private String spectaclesModel;
 	private String spectaclesDescription;
 	private double spectaclesCost;
+	
 	public int getSpectaclesId() {
 		return spectaclesId;
 	}
@@ -56,6 +59,9 @@ public class Spectacles implements Serializable {
 		this.spectaclesModel = spectaclesModel;
 		this.spectaclesDescription = spectaclesDescription;
 		this.spectaclesCost = spectaclesCost;
+	}
+	public Spectacles(int i, String string, String string2, double d) {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

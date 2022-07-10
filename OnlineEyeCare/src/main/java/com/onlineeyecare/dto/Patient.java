@@ -10,6 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Patient {
@@ -19,11 +24,25 @@ public class Patient {
 	private int patientId;
 	private String patientName;
 	private String patientAge;
+	
+	@NotBlank(message="Mobile Number should not be Empty")
+	@Pattern(regexp="(^[6-9][0-9]{9}+$)" ,message="Mobile Number is Not valid")
 	private long patientMoile;
+	
+	@Email
+	@NotEmpty(message="Patient Email should not be Empty")
+	@Size(min=5, max=20)
 	private String patientEmail;
 	private LocalDate patientDOB;
 	private String patientUserName;
+	
+	@Column(name="patient_password", length=20)
+	@NotEmpty(message="Patient Password should not be Empty")
+	@Size(min=5, max=20)
 	private String patientPassword;
+	
+	@Column(name="patient_address", length=30)
+	@NotEmpty(message="Patient Address should not be Empty")
 	private String patientaddress;
 	
 	@OneToMany(cascade=CascadeType.ALL)

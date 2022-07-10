@@ -3,9 +3,12 @@ package com.onlineeyecare.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.onlineeyecare.dto.Appointment;
 import com.onlineeyecare.exceptions.ResourceNotFoundException;
 
+@Service(value="appointmentService")
 public interface IAppointmentService {
 	
 	public Appointment updateAppointment(Appointment appointment) throws ResourceNotFoundException;

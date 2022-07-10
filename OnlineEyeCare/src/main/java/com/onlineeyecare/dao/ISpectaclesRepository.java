@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.onlineeyecare.dto.Spectacles;
 
-@Repository
-public interface ISpectaclesRepo extends JpaRepository<Spectacles, Integer> {
+@Repository(value =  "spectaclesRepository")
+public interface ISpectaclesRepository extends JpaRepository<Spectacles, Integer>{	
 	@Query("SELECT Spec FROM Spectacles Spec")
 	List<Spectacles> findAllSpectacles();
 }

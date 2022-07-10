@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.onlineeyecare.dto.Admin;
 
-@Repository
+@Repository(value="adminRepository")
 public interface IAdminRepository extends JpaRepository<Admin,Integer> {
 	
 }

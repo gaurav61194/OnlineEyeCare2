@@ -14,7 +14,7 @@ import com.onlineeyecare.dto.User;
 import com.onlineeyecare.exceptions.PasswordNotMatchException;
 import com.onlineeyecare.exceptions.UserNotFoundException;
 
-@Service
+@Service(value="userServiceImpl")
 public class UserServiceImpl implements IUserService{
 	
 	@Autowired

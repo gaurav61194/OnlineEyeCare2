@@ -19,8 +19,10 @@ public class Appointment {
 	@NotEmpty(message="Id is required")
 	@Column(name="appointment_Id")
 	private Integer appointmentId;
+	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate dateOfAppointment;
+	
 	@JsonFormat (shape = JsonFormat.Shape.STRING, pattern="hh:mm:ss a")
 	LocalTime timeOfAppointment;
 	Double consultationFee;
@@ -28,6 +30,7 @@ public class Appointment {
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="doctor_Id")
 	Doctor doctorId;
+	
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="patient_Id")
 	@JsonIgnore

@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 //User method
+
 @Entity
 @Table(name = "User_Table1")
 public class User {
@@ -15,13 +17,16 @@ public class User {
 	@Id
 	@NotBlank(message = "UserName must be filled")
 	private String userName;
+	
 	@NotBlank(message = "Password must be filled")
-	@Size(min = 8, max = 12)
+	@Pattern(regexp = "[A-Za-z0-9@#$%^&]{8,20}+$", message = "Password Must be between 8 to 20 characters")
 	private String password;
+	
 	@NotBlank(message = "Role must be filled")
 	private String role;
 	
 	//getter and setter
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -42,6 +47,7 @@ public class User {
 	}
 	
 	//Constructor
+	
 	public User() {
 		super();
 	}
